@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.zulfikar.githubuserssearch.ui.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_detailFragment"
+            app:destination="@id/detailFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_homeFragment_to_profileActivity"
+            app:destination="@id/profileActivity" />
+        <action
+            android:id="@+id/action_homeFragment_to_favoriteFragment"
+            app:destination="@id/favoriteFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_switchFragment"
+            app:destination="@id/switchFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.zulfikar.githubuserssearch.ui.insert.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" >
+        <argument
+            android:name="username"
+            app:argType="string"
+            android:defaultValue="iniusername" />
+        <argument
+            android:name="bookmarked"
+            app:argType="boolean"
+            android:defaultValue="false" />
+        <argument
+            android:name="url"
+            app:argType="string"
+            android:defaultValue="iniurl" />
+        <action
+            android:id="@+id/action_detailFragment_to_switchFragment"
+            app:destination="@id/switchFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_detailFragment_self"
+            app:destination="@id/detailFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <activity
+        android:id="@+id/profileActivity"
+        android:name="com.zulfikar.githubuserssearch.ui.ProfileActivity"
+        android:label="activity_profile"
+        tools:layout="@layout/activity_profile" />
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="com.zulfikar.githubuserssearch.ui.FavoriteFragment"
+        android:label="fragment_favorite"
+        tools:layout="@layout/fragment_favorite" >
+        <action
+            android:id="@+id/action_favoriteFragment_to_detailFragment"
+            app:destination="@id/detailFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_favoriteFragment_to_switchFragment"
+            app:destination="@id/switchFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/switchFragment"
+        android:name="com.zulfikar.githubuserssearch.ui.theme.SwitchFragment"
+        android:label="fragment_switch"
+        tools:layout="@layout/fragment_switch" />
+</navigation>
